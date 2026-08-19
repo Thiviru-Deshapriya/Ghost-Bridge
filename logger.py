@@ -12,23 +12,27 @@ class GhostLog:
         self.end_time = 0
         self._rotate_file() 
     def _rotate_file(self):
-        """Internal helper to create a new file every hour."""
+        
         log_time = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.current_log_file = os.path.join(self.log_dir, f"ghost_log_{log_time}.csv")
-        self.end_time = time.time() + 3600  
+        self.end_time = time.time() + 10800  
         
         with open(self.current_log_file, mode="w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=self.fields)
             writer.writeheader()
-        print(f"[!] New Log Created: {self.current_log_file}")
+        print(f"\n[!] New Log Created: {self.current_log_file}")
 
     def log(self, data):
 
 
         if time.time() > self.end_time:
             self._rotate_file()
-
+        src_mac = {data.get("src_mac")}  
+        dst_mac = {data.get("dst_mac")}   
+        visited = {data.get("metadata")}  
+        TTL = {data.get("ttl")}
         try:
+            print( f" src_mac ====> {src_mac}  dst_mac ====> {dst_mac}   visited ====> {visited}  TTL  ====> {TTL}" )
             with open(self.current_log_file, mode="a", newline="", encoding="utf-8") as f:
                 writer = csv.DictWriter(f, fieldnames=self.fields)
                 writer.writerow({

@@ -54,7 +54,7 @@ class local_prep():
             for row in oui__reader: #creating a dict bcs csv dict  is one way 
                 oui_dict[row["Assignment"].lower()] = row["Organization Name"] 
             
-            # print(oui_dict)              
+                          
             
             
             for i, element in enumerate(answered_list, 1):
@@ -92,3 +92,7 @@ class local_prep():
             sys.exit(1)
             
         return target_ip, target_mac, gateway_ip, gateway_mac
+    
+    
+    
+    

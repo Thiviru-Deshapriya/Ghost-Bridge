@@ -1,4 +1,6 @@
+from geoip2 import database
 import geoip2.database
+
 db_file = 'GeoLite2-ASN.mmdb' 
 
 def get_org_name(ip_address):
@@ -11,7 +13,6 @@ def get_org_name(ip_address):
             }
     except Exception as e:
         return f"Error: {e}"
-
 
 target_ip = "43.252.12.76" 
 print(get_org_name(target_ip))
