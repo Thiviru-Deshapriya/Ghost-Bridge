@@ -1,6 +1,6 @@
 ### Ghost-Bridge 👻
 
-**Ghost-Bridge** is a Python-based Man-in-the-Middle (MITM) framework that performs ARP Spoofing to intercept, manipulate, and sniff traffic on a local network. It features a modular architecture with three distinct components: Reconnaissance, Attack, and Surveillance.
+**Ghost-Bridge** is a Python-based network sniffing framework that also capable of performing ARP poisoning to intercept, manipulate, and sniff traffic on a local network. It features a modular architecture with three distinct components: Reconnaissance, Attack, and Surveillance.
 
 ---
 
